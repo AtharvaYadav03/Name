@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>
+             Name
+
+        </title>
+        <style>
+            *{font-size: 50px;}
+            body{background-color: rgb(255, 0, 0);}
+        </style>
+
+    </head>
+    <body>
+        <center>
+            <h1>  name App </h1>
+            <form onsubmit= "Check()">
+                <input type="text"   id="name"  placeholder="enter your name"/>
+                <br/><br/>
+                <input type="submit"  value="Greet"/>
+            </form>
+            <h2 id="msg"/>
+
+        <script>
+            function Check()
+            {
+                event.preventDefault();
+                let name=document.getElementById("name");
+                let msg=document.getElementById("msg");
+
+                if(name.value==="")
+            {
+                alert("name is empty");
+                msg.innerHTML="";
+                name.focus();
+                return;
+
+
+            }
+
+            if(name.value.trim()==="")
+            {
+                alert("name cannot be blank spaces");
+                name.value=""
+                msg.innerHTML="";
+                name.focus();
+                return;
+
+
+            }
+            if(!name.value.match(/^[A-Za-z ]+$/))
+            {
+                alert("name should contain only alphabets");
+                name.value=""
+                msg.innerHTML="";
+                name.focus();
+                return;
+
+
+            }
+           let d= new Date();
+           let hr= d.getHours();
+           let rep=""
+           if(hr<12){
+            rep="Good Morining" +name.value;
+           }
+            else if(hr<16){
+            rep="Good Afternoon" +name.value;
+           }
+           else{
+            rep="Good Evening" +name.value;
+           }
+           msg.innerHTML=rep;
+           
+
+           
+            
+
+            }
+
+
+
+
+
+
+        </script>
+        </center>
+
+
+    </body>
+    
+
+
+</html>
